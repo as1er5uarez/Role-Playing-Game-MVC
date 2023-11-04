@@ -2,7 +2,7 @@
 //Es necesario que importemos los ficheros creados con anterioridad porque los vamos a utilizar desde este fichero.
 require_once(dirname(__FILE__) . '/../../controllers/indexController.php');
 //Recupero de la BD todos los empleos a través del controlador
-$offers = indexAction();
+$car = indexAction();
 // Gestión de sesión
 require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
 ?>
@@ -21,7 +21,7 @@ require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
     <body>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img src="../../../assets/img/small-logo.png" alt="" ></a>
+            <a class="navbar-brand" href="#"><img class="rounded float-start" src="../../../assets/img/logo.png" alt="Logo rueda" ></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -49,14 +49,14 @@ require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
             <!-- Heading Row -->
             <div class="row">
                 <div class="col-md-8">
-                    <img class="img-fluid rounded" src="../../../assets/img/main-logo.jpg" alt="">
+                    <img class="img-fluid rounded" src="../../../assets/img/caratula-vehiculos.jpg" alt="Vehiculos">
                 </div>
                 <!-- /.col-md-8 -->
                 <div class="col-md-4">
-                    <h1>Artean, bolsa de empleo de Cuatrovientos</h1>
-                    <p class="lead">Desde Cuatrovientos queremos dar la bienvenida a todo el alumnado y empresas que por primera vez se acercan al instituto y a aquellos que continúan con sus programas formativos. </p>
+                    <h1>Bienvenido al mejor lugar para ver autos</h1>
+                    <p class="lead">El Concesionario de Autos de Lujo "Acosta" es un establecimiento exclusivo dedicado a la venta de vehículos de gama alta y lujo. Con una reputación de excelencia en la industria automotriz, Acosta ofrece a sus clientes una experiencia única y sofisticada. A continuación, se presenta una descripción general de este concesionario de autos de lujo: </p>
                     <p class="lead">
-                       <a  class="nav-link " href="offer/insert.php">Agregar un empleo</a>
+                        <a  class="nav-link " href="Car/insert.php">Agregar un vehiculo</a>
                     </p>
                 </div>
             </div>
@@ -65,15 +65,15 @@ require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
         <hr>
         <!-- Content Row -->
         <?php
-        for ($i = 0; $i < sizeof($offers); $i+=3) {
+        for ($i = 0; $i < sizeof($car); $i+=3) {
             ?>
             <div class="card-group"> 
            <!--  <div class="row">  -->
             <?php
             for ($j = $i; $j < ($i + 3); $j++) {
-                if (isset($offers[$j])) {
+                if (isset($car[$j])) {
 
-                    echo $offers[$j]->privateOffer2HTML();
+                    echo $car[$j]->privateOffer2HTML();
                 }
             }
             ?>

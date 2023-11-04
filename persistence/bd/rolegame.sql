@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2023 at 11:08 AM
+-- Generation Time: Nov 04, 2023 at 09:58 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -36,6 +36,20 @@ CREATE TABLE `creature` (
   `lifeLevel` int(11) NOT NULL,
   `weapon` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Table structure for table `creature`
+--
+
+CREATE TABLE IF NOT EXISTS `rolegame`.`users` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(50) CHARACTER SET 'utf8' NULL DEFAULT NULL,
+  `password` VARCHAR(50) CHARACTER SET 'utf8' NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+  ENGINE = InnoDB
+  AUTO_INCREMENT = 4
+  DEFAULT CHARACTER SET = utf8
+  COLLATE = utf8_unicode_ci;
 
 --
 -- Indexes for dumped tables

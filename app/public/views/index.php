@@ -14,14 +14,14 @@ require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Artean</title>
+        <title>Concesionario Acosta</title>
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     </head>
     <body>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img src="../../../assets/img/small-logo.png" alt="" ></a>
+            <a class="navbar-brand" href="#"><img class="rounded float-start" src="../../../assets/img/logo.png" alt="Logo rueda" ></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,12 +38,12 @@ require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
 
                     </li>
                 </ul>
-                   <span class='badge badge-danger mr-2'> regístrate o inicia sesión.</span>
+                <span class='badge badge-danger mr-2'> regístrate o inicia sesión.</span>
                     <form class="form-inline" role="form" method="POST" action="../../controllers/user/userController.php">
                             <input type="text" name="user" class="form-control" id="email"
-                                   placeholder="yoxti@ejemplo.com" required autofocus>
+                                placeholder="yoxti@ejemplo.com" required autofocus>
                             <input type="password" name="pass" class="form-control" id="password"
-                                   placeholder="Contraseña" required>
+                                placeholder="Contraseña" required>
                         <button type="submit" class="btn btn-success" value="Login" id="login" name="btnsubmit"> Acceder</button>
                     </form> 
             </div>  
@@ -53,7 +53,7 @@ require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
             <!-- Heading Row -->
             <div class="row">
                 <div class="col-md-8">
-                    <img class="img-fluid rounded" src="../../../assets/img/main-logo.jpg" alt="">
+                    <img class="img-fluid rounded" src="../../../assets/img/caratula-vehiculos.jpg" alt="">
                 </div>
                 <!-- /.col-md-8 -->
                 <div class="col-md-4">

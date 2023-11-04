@@ -29,26 +29,32 @@ class CarDAO{
     
     public function insert($car){
         $query = "insert into ". CarDAO::CREATURE_TABLE .
-                " (name, description, avatar, attackPower, lifeLevel, weapon) VALUES (?,?,?,?,?,?)";
+                "(name, description, avatar, power, lifeLevel, brand) VALUES (?,?,?,?,?,?)";
         $stmt = mysqli_prepare($this->conn, $query);
         //Cambiar los "" por los campos de la tabla
-        
-        mysqli_stmt_bind_param($stmt, 'sss', $name, $description, $avatar, $attackPower, $lifeLevel, $weapon);
+        $name = $car->getName();
+        $description= $car->getDescription();
+        $avatar = $car->getAvatar();
+        $power = $car->getPower();
+        $id = $car->getIdCar();
+        $lifeLevel = $car->getLifeLevel();
+        $brand = $car->getBrand();
+        mysqli_stmt_bind_param($stmt, 'ssssss', $name, $description,$avatar, $power, $lifeLevel, $brand);
         return $stmt->execute();
     }
     
     public function update($car) {
         $query = "UPDATE " . CarDAO::CREATURE_TABLE .
-                " SET name=?, description=?, avatar=?, attackPower=?, lifeLevel=?, weapon=?";
+                " SET name=?, description=?, avatar=?, power=?, lifeLevel=?, brand=?";
         $stmt = mysqli_prepare($this->conn, $query);
         $name = $car->getName();
         $description= $car->getDescription();
-        $avatar = $car->getBrand();
+        $avatar = $car->getAvatar();
+        $power = $car->getPower();
         $id = $car->getIdCar();
-        $attackPower = $car->getPower();
         $lifeLevel = $car->getLifeLevel();
-        $weapon = $car->getWheel();  
-        mysqli_stmt_bind_param($stmt, 'sss', $name, $description, $avatar, $attackPower, $lifeLevel, $weapon);
+        $brand = $car->getBrand();
+        mysqli_stmt_bind_param($stmt, 'ssssss', $name, $description, $avatar, $power, $lifeLevel, $brand);
         return $stmt->execute();
     }
     
