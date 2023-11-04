@@ -10,9 +10,9 @@ class Car{
     private $name;
     private $description;
     private $brand;
+    private $avatar;
     private $power;
     private $lifeLevel;
-    private $wheel;
     
     public function __construct(){
         
@@ -34,16 +34,16 @@ class Car{
         return $this->brand;
     }
 
+    public function getAvatar() {
+        return $this->avatar;
+    }
+
     public function getPower() {
         return $this->power;
     }
 
     public function getLifeLevel() {
         return $this->lifeLevel;
-    }
-
-    public function getWheel() {
-        return $this->wheel;
     }
 
     public function setIdCar($idCar): void {
@@ -62,16 +62,16 @@ class Car{
         $this->brand = $brand;
     }
 
+    public function setAvatar($avatar):void{
+        $this->avatar = $avatar;
+    }
+
     public function setPower($power): void {
         $this->power = $power;
     }
 
     public function setLifeLevel($lifeLevel): void {
         $this->lifeLevel = $lifeLevel;
-    }
-
-    public function setWheel($wheel): void {
-        $this->wheel = $wheel;
     }
 
     function car2HTML() {

@@ -39,7 +39,7 @@ require_once(dirname(__FILE__) . '/../../../../utils/SessionUtils.php');
         <div class="container">
             <div class="row m-y-2">
                 <div class="col-lg-8 push-lg-4">
-                    <form class="form-horizontal" role="form" method="POST" action="../../../controllers/user/insertController.php">
+                    <form class="form-horizontal" role="form" method="POST" action="../../../controllers/user/insertUser.php">
                         <div class="row">
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
