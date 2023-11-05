@@ -1,15 +1,15 @@
 <?php
 //Es necesario que importemos los ficheros creados con anterioridad porque los vamos a utilizar desde este fichero.
-require_once(dirname(__FILE__) . '\..\..\..\..\persistence\DAO\OfferDAO.php');
-require_once(dirname(__FILE__) . '\..\..\..\models\Offer.php');
+require_once(dirname(__FILE__) . '\..\..\..\..\persistence\DAO\CarDAO.php');
+require_once(dirname(__FILE__) . '\..\..\..\models\Car.php');
 // Analize session
 require_once(dirname(__FILE__) . '\..\..\..\..\utils\SessionUtils.php');
 //Compruebo que me llega por GET el parámetro
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
     //Creamos un objeto OfferDAO para hacer las llamadas a la BD
-    $offerDAO = new OfferDAO();
-    $offer = $offerDAO->selectById($id);
+    $carDAO = new CarDAO();
+    $car = $carDAO->selectById($id);
 }
 ?>
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ if (isset($_GET["id"])) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     </head>
     <body>
-         <!-- Navigation -->
+        <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="../../../../index.php"><img src="../../../../assets/img/small-logo.png" alt="" ></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,10 +36,7 @@ if (isset($_GET["id"])) {
                 if (SessionUtils::loggedIn())
                 {
                 ?>
-                 <ul class="navbar-nav ">
-                    <li class="nav-item ">
-                        <a  class="nav-link " href="contact.php">Contactar</a>
-                    </li>
+                <ul class="navbar-nav ">
                     <li class="nav-item">
                         <a  class="nav-link " href="../../public/views/user/logout.php">Salir</a>
                     </li>
@@ -75,14 +72,22 @@ if (isset($_GET["id"])) {
             <div class="card" >
                 <div class="card-block">
                     <h2 class="card-title"> <?php  
-                            echo (isset($_GET["id"])? $offer->getCompany() : "") ;                    
-                     ?></h2>
+                            echo (isset($_GET["id"])? $car->getName() : "") ;                    
+                    ?></h2>
                     <i class=" card-text description"> <?php 
-                            echo (isset($_GET["id"])? $offer->getPosition() : "") ;    
+                            echo (isset($_GET["id"])? $car->getDescription() : "") ;    
                     ?></i>  
                     <p class=" card-text description"> <?php 
-                            echo (isset($_GET["id"])? $offer->getFunction() : "") ;    
+                            echo (isset($_GET["id"])? $car->getBrand() : "") ;    
                     ?></p>  
+                    <p class=" card-text description"> <?php 
+                            echo (isset($_GET["id"])? $car->getPower() : "") ;    
+                    ?></p>   
+                    <p class=" card-text description"> <?php 
+                            echo (isset($_GET["id"])? $car->getLifeLevel() : "") ;    
+                    ?></p>  
+                    <img src="<?php echo (isset($_GET["id"]) ? $car->getAvatar() : ""); ?>" alt="Imagen">
+
                 </div>
                 <?php  
                 if($loggedin)
@@ -91,11 +96,11 @@ if (isset($_GET["id"])) {
                 
                 <div  class=" btn-group card-footer" role="group">
                     <a type="button" class="btn btn-success" href="edit.php?id=<?php 
-                            echo (isset($_GET["id"])? $offer->getIdOffer() : "") ;    
+                            echo (isset($_GET["id"])? $car->getIdCar() : "") ;    
                     ?>">Modificar</a> 
-                    <a type="button" class="btn btn-danger" href="../../../controllers/offer/deleteController.php?id=<?php 
-                            echo (isset($_GET["id"])? $offer->getIdOffer() : "") ;    
-                    ?>">">Borrar</a> 
+                    <a type="button" class="btn btn-danger" href="../../../controllers/lococher/deleteController.php?id=<?php 
+                            echo (isset($_GET["id"])? $car->getIdCar() : "") ;    
+                    ?>">Borrar</a> 
                 </div>
                 
                 <?php

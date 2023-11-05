@@ -7,7 +7,7 @@
  *
  * @version    0.1
  * 
- * @author     Ander Frago <ander_frago@cuatrovientos.org>
+ * @author     Asier Suárez <suarexasier@gmail.com>
  */
 
 class SessionUtils {

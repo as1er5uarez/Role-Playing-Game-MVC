@@ -1,15 +1,15 @@
 <?php
 //Es necesario que importemos los ficheros creados con anterioridad porque los vamos a utilizar desde este fichero.
-require_once(dirname(__FILE__) . '\..\..\..\..\persistence\DAO\OfferDAO.php');
-require_once(dirname(__FILE__) . '\..\..\..\models\Offer.php');
+require_once(dirname(__FILE__) . '\..\..\..\..\persistence\DAO\CarDAO.php');
+require_once(dirname(__FILE__) . '\..\..\..\models\Car.php');
 // Analize session
 require_once(dirname(__FILE__) . '\..\..\..\..\utils\SessionUtils.php');
 //Compruebo que me llega por GET el parámetro
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
 
-    $offerDAO = new OfferDAO();
-    $offer = $offerDAO->selectById($id);
+    $carDAO = new CarDAO();
+    $car = $carDAO->selectById($id);
 }
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ if (isset($_GET["id"])) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Artean</title>
+        <title>Acosta</title>
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     </head>
@@ -33,9 +33,6 @@ if (isset($_GET["id"])) {
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ">
-                    <li class="nav-item ">
-                        <a  class="nav-link " href="contact.php">Contactar</a>
-                    </li>
                     <li class="nav-item">
                         <a  class="nav-link " href="../../public/views/user/logout.php">Salir</a>
                     </li>
@@ -52,37 +49,59 @@ if (isset($_GET["id"])) {
         </nav>
         <!-- Page Content -->
         <div class="container">
-            <form class="form-horizontal" method="post" action="../../../controllers/offer/editController.php">
-                <div class="form-group">
-                    <label for="company" class="col-sm-2 control-label">Company</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="company" id="company" placeholder="Empresa" value="<?php echo $offer->getCompany(); ?>">
+            <form class="form-horizontal" method="post" action="../../../controllers/locoche/editController.php">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Cupra Leon FR" value="<?php echo $car->getName(); ?>">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="position" class="col-sm-2 control-label">Position</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="position" name="position" placeholder="Cargo" value="<?php echo $offer->getPosition(); ?>">
+                    
+                    <div class="form-group">
+                        <label for="description" class="col-sm-2 control-label">Descripción</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="description" name="description" placeholder="SUV" value="<?php echo $car->getDescription(); ?>">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="function" class="col-sm-2 control-label">Function</label>
-                    <div class="col-sm-10">
-                        <input type="textbox" class="form-control" id="function" name="function" placeholder="Función" value="<?php echo $offer->getFunction(); ?>">
+                    <div class="form-group">
+                        <label for="brand" class="col-sm-2 control-label">Marca</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="brand" name="brand" placeholder="SEAT" value="<?php echo $car->getBrand(); ?>">
+                        </div>
                     </div>
-                </div>
-                <input type="hidden" name="id" value="<?php echo $offer->getIdOffer(); ?>">
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Edit</button>
+
+                    <div class="form-group">
+                        <label for="power" class="col-sm-2 control-label">Potencia</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="power" name="power" placeholder="150CV" value="<?php echo $car->getPower(); ?>">
+                        </div>
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label for="lifeLevel" class="col-sm-2 control-label">Vida util</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="lifeLevel" name="lifeLevel" placeholder="Años" value="<?php echo $car->getLifeLevel(); ?>">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="avatar" class="col-sm-2 control-label">Vehiculo</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" id="avatar" name="avatar" value="<?php echo $car->getAvatar(); ?>">
+                        </div>
+                    </div>
+                    <input type="hidden" id="id" name="id" value="<?php echo $car->getIdCar(); ?>">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Editar vehiculo</button>
+                        </div>
+                    </div>
             </form>
             <!-- Footer -->
             <footer>
                 <div class="row">
                     <div class="col-lg-12">
-                        <p>Copyright &copy; A. F. 2017</p>
+                        <p>Copyright &copy; A. S. 2023</p>
                     </div>
                 </div>
             </footer>

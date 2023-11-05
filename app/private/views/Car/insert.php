@@ -23,9 +23,6 @@ require_once(dirname(__FILE__) . '/../../../../utils/SessionUtils.php');
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ">
-                    <li class="nav-item ">
-                        <a  class="nav-link " href="contact.php">Contactar</a>
-                    </li>
                     <li class="nav-item">
                         <a  class="nav-link " href="../../public/views/user/logout.php">Salir</a>
                     </li>
