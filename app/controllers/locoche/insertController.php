@@ -22,7 +22,6 @@ function createAction() {
     $power = ValidationsRules::test_input($_POST["power"]);
     $lifeLevel = ValidationsRules::test_input($_POST["lifeLevel"]);
     $avatar = ValidationsRules::test_input($_POST["avatar"]);
-    $model = ValidationsRules::test_input($_POST["model"]);
 
 
     // Creación de objeto auxiliar
@@ -37,5 +36,5 @@ function createAction() {
     $carDAO = new CarDAO();
     $carDAO->insert($car);
     
-    header('Location: ../../../private/views/index.php');    
+    header('Location: ../../../index.php');    
 }

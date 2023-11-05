@@ -21,7 +21,7 @@ require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
     <body>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img class="rounded float-start" src="../../../assets/img/logo.png" alt="Logo rueda" ></a>
+            <a class="navbar-brand" href="#"><img class="rounded float-start" src="../../../assets/img/logo.jpg" alt="Logo rueda" ></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,9 +30,6 @@ require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a  class="nav-link " href="user/signup.php">Registrarse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a  class="nav-link " href="contact.php">Contactar</a>
                     </li>
                     <li class="nav-item ">
 
@@ -75,9 +72,8 @@ require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
             <div class="row"> 
                 <?php
                 for ($j = $i; $j < ($i + 3); $j++) {
-                    if (isset($offers[$j])) {
-
-                        echo $offers[$j]->publicOffer2HTML();
+                    if (isset($cars[$j])) {
+                        echo $cars[$j]->publicOffer2HTML();
                     }
                 }
                 ?>

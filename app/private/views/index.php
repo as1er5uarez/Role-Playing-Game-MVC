@@ -2,7 +2,7 @@
 //Es necesario que importemos los ficheros creados con anterioridad porque los vamos a utilizar desde este fichero.
 require_once(dirname(__FILE__) . '/../../controllers/indexController.php');
 //Recupero de la BD todos los empleos a través del controlador
-$car = indexAction();
+$cars = indexAction();
 // Gestión de sesión
 require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
 ?>
@@ -14,22 +14,19 @@ require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Artean</title>
+        <title>Concesionario Acosta</title>
         <!-- Bootstrap Core CSS -->
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     </head>
     <body>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img class="rounded float-start" src="../../../assets/img/logo.png" alt="Logo rueda" ></a>
+            <a class="navbar-brand" href="#"><img class="rounded float-start" src="../../../assets/img/logo.jpg" alt="Logo rueda" ></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ">
-                    <li class="nav-item ">
-                        <a  class="nav-link " href="../../public/views/contact.php">Contactar</a>
-                    </li>
                     <li class="nav-item">
                         <a  class="nav-link " href="../../public/views/user/logout.php">Salir</a>
                     </li>
@@ -65,23 +62,22 @@ require_once(dirname(__FILE__) . '/../../../utils/SessionUtils.php');
         <hr>
         <!-- Content Row -->
         <?php
-        for ($i = 0; $i < sizeof($car); $i+=3) {
+        for ($i = 0; $i < sizeof($cars); $i+=6) {
             ?>
             <div class="card-group"> 
-           <!--  <div class="row">  -->
+            <!--  <div class="row">  -->
             <?php
-            for ($j = $i; $j < ($i + 3); $j++) {
-                if (isset($car[$j])) {
-
-                    echo $car[$j]->privateOffer2HTML();
+            for ($j = $i; $j < ($i + 6); $j++) {
+                if (isset($cars[$j])) {
+                    echo $cars[$j]->Car2HTML();
                 }
             }
             ?>
             </div> 
             <!-- /.row -->
                 <?php
-            }
-            ?>
+        }
+                ?>
     </div>
     <!-- /.container -->
     <!-- Footer -->
